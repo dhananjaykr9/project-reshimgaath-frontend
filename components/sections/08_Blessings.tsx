@@ -13,7 +13,7 @@ export default function Blessings() {
       img: "/images/family/parents.jpg"
     },
     {
-      who: "दादा आणि वाहिनी",
+      who: "दादा आणि वहिनी",
       relation: "Host",
       text: "नात्यांची ही रेशीमगाठ अशीच घट्ट राहो. तुमच्या सुखी संसारासाठी खूप खूप शुभेच्छा!",
       img: "/images/family/hosts.jpg"
