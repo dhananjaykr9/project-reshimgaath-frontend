@@ -106,7 +106,7 @@ export default function DeveloperInfo() {
                     <Zap size={16} className="text-wedding-maroon fill-current" />
                 </div>
                 <span className="text-[10px] md:text-[11px] text-mauli-gold font-black uppercase tracking-[0.4em]">
-                  Kshanika Visionary
+                  Meet Kshanika Digital
                 </span>
                 <motion.div animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
                   <ExternalLink size={14} className="text-mauli-gold" />
