@@ -199,7 +199,7 @@ export default function ShubhAarambh() {
                         Confirm Attendance (RSVP)
                     </button>
                 </Link>
-                <p className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.4em] mt-4 opacity-80">
+                <p className="text-[10px] font-black text-[#M0AF80] uppercase tracking-[0.4em] mt-4 opacity-80">
                     Please respond by Feb 15th
                 </p>
             </motion.div>

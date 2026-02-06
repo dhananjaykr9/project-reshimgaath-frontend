@@ -2,11 +2,12 @@
 
 import { useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
-import { Sparkles, Armchair, Info } from "lucide-react";
+import { Sparkles, Armchair } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 export default function SadhaModeToggle() {
+  // Pulling state from store - if store is false, toggle starts 'off'
   const { isSadhaMode, toggleSadhaMode } = useStore();
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -37,17 +38,17 @@ export default function SadhaModeToggle() {
           onMouseEnter={() => setShowTooltip(true)}
           onMouseLeave={() => setShowTooltip(false)}
           className={cn(
-            "relative h-8 w-14 rounded-full transition-all duration-500 p-1 shadow-md",
+            "relative h-8 w-14 rounded-full transition-all duration-500 p-1 shadow-md outline-none",
             isSadhaMode 
               ? "bg-slate-200"
               : "bg-gradient-to-r from-wedding-royal to-mauli-red"
           )}
           aria-label="Toggle Simplified Mode"
         >
-          {/* Knob - Scaled Down */}
+          {/* Knob - Starts at x:0 when isSadhaMode is false */}
           <motion.div
             animate={{ x: isSadhaMode ? 24 : 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
             className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-sm"
           >
             <AnimatePresence mode="wait">
@@ -79,15 +80,15 @@ export default function SadhaModeToggle() {
       <AnimatePresence>
         {showTooltip && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.95, y: -5 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -5 }}
             className="mr-1 relative"
           >
             <div className="px-3 py-2 bg-slate-900/95 backdrop-blur-md text-white text-[10px] rounded-lg shadow-xl pointer-events-none max-w-[140px] text-center leading-tight border border-white/10 flex flex-col items-center gap-1">
               {isSadhaMode 
-                ? "Comfort view active." 
-                : "Switch for high-contrast view."}
+                ? "Standard high-contrast view." 
+                : "Switch for animations & effects."}
             </div>
           </motion.div>
         )}

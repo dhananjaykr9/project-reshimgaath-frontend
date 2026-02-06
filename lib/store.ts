@@ -12,18 +12,19 @@ interface AppState {
   toggleMute: () => void;
 }
 
+// frontend/lib/store.ts
 export const useStore = create<AppState>()(
   persist(
     (set) => ({
-      // Default: Animations ON, Audio OFF
-      isSadhaMode: false, 
+      isSadhaMode: true, // Now this will correctly default to true
       isMuted: true,
-
+      
       toggleSadhaMode: () => set((state) => ({ isSadhaMode: !state.isSadhaMode })),
       toggleMute: () => set((state) => ({ isMuted: !state.isMuted })),
     }),
     {
-      name: 'reshimgaath-storage', // Saves to localStorage
+      // Renaming the key forces a fresh start without migration errors
+      name: 'reshimgaath-v2', 
     }
   )
 );
