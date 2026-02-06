@@ -27,8 +27,14 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.description,
   manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    // Adding ?v=1 forces the browser to bypass the cache and load the new file
+    icon: [
+      { url: "/images/gavaskar-logo.png?v=1", type: "image/png" },
+    ],
+    shortcut: ["/images/gavaskar-logo.png?v=1"],
+    apple: [
+      { url: "/images/gavaskar-logo.png?v=1" },
+    ],
   },
 };
 
@@ -37,7 +43,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  userScalable: false, // Prevents accidental zooming during face scanning
+  userScalable: false, 
   themeColor: "#FDFCF0",
 };
 
@@ -48,6 +54,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="mr" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        {/* The most aggressive way to force Chrome to update the tab icon */}
+        <link rel="shortcut icon" href="/images/gavaskar-logo.png?v=1" />
+        <link rel="icon" type="image/png" href="/images/gavaskar-logo.png?v=1" />
+        <link rel="apple-touch-icon" href="/images/gavaskar-logo.png?v=1" />
+      </head>
       <body
         className={cn(
           "relative min-h-screen bg-wedding-paper antialiased overflow-x-hidden font-marathi",
@@ -55,26 +67,14 @@ export default function RootLayout({
           sanskritFont.variable
         )}
       >
-        {/* Global Paper Texture Overlay 
-            - Fixed at z-1 to sit behind content but over background
-            - multiply mix-blend to feel like real paper grain
-        */}
         <div 
           className="texture-overlay pointer-events-none fixed inset-0 z-[1] opacity-15 mix-blend-multiply" 
           aria-hidden="true"
         />
 
-        {/* Main Content Container
-            - Set to z-10 to ensure it stays above the texture grain
-        */}
         <main className="relative z-10">
           {children}
         </main>
-
-        {/* Optional: For your Face Recognition service, 
-            Next.js handles camera permissions better if the UI 
-            isn't nested too deeply.
-        */}
       </body>
     </html>
   );

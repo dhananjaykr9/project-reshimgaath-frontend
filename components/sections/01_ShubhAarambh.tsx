@@ -168,13 +168,13 @@ export default function ShubhAarambh() {
             className="flex flex-col items-center"
         >
             <div className="relative py-4">
-              {/* Names updated to a yellowish-maroon mix for better light-background contrast */}
-              <h1 className="font-marathi text-[12vw] md:text-[9rem] text-[#8b0000] font-black leading-[1] md:leading-[1.1] tracking-tighter drop-shadow-[0_2px_2px_rgba(212,175,55,0.8)]">
-                  <span className="block lg:inline-block px-4">{COUPLE.groom.name}</span>
+              {/* Names updated to use a Devanagari calligraphy-style matching the wedding theme */}
+              <h1 className="font-marathi text-[12vw] md:text-[9.5rem] text-[#8b0000] font-black leading-[1] md:leading-[1.1] tracking-tighter drop-shadow-[0_2px_2px_rgba(212,175,55,0.8)]">
+                  <span className="block lg:inline-block px-4 font-devanagari tracking-normal">{COUPLE.groom.name}</span>
                   <span className="block lg:inline-block text-3xl md:text-7xl text-[#d4af37] font-serif italic mx-0 lg:mx-10 opacity-100 my-2 lg:my-0 drop-shadow-none">
                   &
                   </span>
-                  <span className="block lg:inline-block px-4">{COUPLE.bride.name}</span>
+                  <span className="block lg:inline-block px-4 font-devanagari tracking-normal">{COUPLE.bride.name}</span>
               </h1>
             </div>
 

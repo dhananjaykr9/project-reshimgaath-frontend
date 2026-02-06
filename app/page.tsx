@@ -15,6 +15,7 @@ import GreenDay from "@/components/sections/03_GreenDay";
 import YellowDay from "@/components/sections/04_YellowDay";
 import TheJourney from "@/components/sections/05_TheJourney";
 import GrandFinale from "@/components/sections/06_GrandFinale";
+import BachelorStory from "@/components/sections/11_BachelorStory"; // Groom's Bachelor Story
 import PhotoShodh from "@/components/sections/07_PhotoShodh";
 import Blessings from "@/components/sections/08_Blessings";
 import RSVP from "@/components/sections/09_RSVP";
@@ -23,9 +24,8 @@ import ChildInvitation from "@/components/sections/10_ChildInvitation";
 export default function Home() {
   const { scrollYProgress } = useScroll();
   
-  // Refined Spring for the Sacred Progress Bar
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 70, // Slightly softer for a more "flowing" feel
+    stiffness: 70, 
     damping: 30,
     restDelta: 0.001
   });
@@ -39,12 +39,11 @@ export default function Home() {
         style={{ scaleX }} 
       />
 
-      {/* 2. GLOBAL HUD (Always on Top) */}
+      {/* 2. GLOBAL HUD */}
       <div className="fixed inset-0 pointer-events-none z-[80]">
         <MauliThread />
       </div>
       
-      {/* Controls positioned for accessibility */}
       <div className="fixed bottom-6 left-6 z-[110] flex items-center gap-4">
         <SadhaModeToggle />
       </div>
@@ -62,12 +61,10 @@ export default function Home() {
       {/* 4. MAIN INVITATION FLOW */}
       <article className="relative z-10 flex flex-col w-full">
         
-        {/* ShubhAarambh - Full Viewport Entry */}
         <section id="welcome" className="w-full relative">
           <ShubhAarambh />
         </section>
         
-        {/* Main Content Container */}
         <div className="relative flex flex-col w-full mx-auto overflow-visible">
           
           <div className="max-w-6xl mx-auto w-full px-4">
@@ -76,8 +73,8 @@ export default function Home() {
             </section>
           </div>
           
-          {/* THE SACRED TIMELINE (Seamless transition) */}
-          <div className="relative w-full">
+          {/* THE SACRED TIMELINE */}
+          <div className="relative w-full pt-20">
              <GreenDay />
              <YellowDay />
              <TheJourney />
@@ -87,18 +84,25 @@ export default function Home() {
           <section id="finale" className="w-full relative z-20 py-20">
             <GrandFinale />
           </section>
-          
-          {/* INTERACTIVE GUEST TOOLS & SPECIAL INVITES */}
+
+          {/* INTERACTIVE GUEST TOOLS & STORIES */}
           <div className="relative flex flex-col w-full space-y-32 py-24 bg-gradient-to-b from-transparent via-mauli-gold/[0.03] to-transparent">
+            
+            
+
             <div className="max-w-6xl mx-auto w-full px-4">
               <PhotoShodh />
             </div>
+
+            {/* BACHELOR STORY - Moved here to look like a "Memory Lane" before blessings */}
+            <section id="bachelor-story" className="w-full relative z-10">
+              <BachelorStory />
+            </section>
 
             <div className="max-w-6xl mx-auto w-full px-4">
               <Blessings />
             </div>
             
-            {/* Child Invite with distinct visual separation */}
             <section id="child-invite" className="w-full relative z-30 min-h-[400px]">
               <ChildInvitation />
             </section>
@@ -115,10 +119,9 @@ export default function Home() {
         </footer>
       </article>
 
-      {/* Hidden SEO & Accessibility Metadata */}
       <div className="sr-only">
         <h1>Wedding Invitation of Atul Gavaskar and Vaishnavi</h1>
-        <p>Celebrating our union on February 26th, 2026, in Chandrapur.</p>
+        <p>A bachelor's story leading to a royal union on February 26th, 2026.</p>
       </div>
     </main>
   );

@@ -1,9 +1,9 @@
 // frontend/lib/constants.ts
 
 export const SITE_CONFIG = {
-  title: "Reshimgaath | Atul & Vaishnavi",
+  title: "Atul & Vaishnavi Wedding",
   description: "The Wedding of Atul Gavaskar & Vaishnavi",
-  url: "https://reshimgaath.vercel.app",
+  url: "https://reshimgaath.live",
 };
 
 // 1. The Spiritual Layer (Sanskrit Shlokas)
