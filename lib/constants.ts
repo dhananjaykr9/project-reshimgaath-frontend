@@ -30,7 +30,7 @@ export const COUPLE = {
     fullName: "Atul Gavaskar",
     bio_header: "नवरदेव",
     education: "BA(Eng), MA(Eng), SET, PhD", 
-    work: "Assistant Professor at Gondwana University, Gadchiroli", 
+    work: " Assistant Professor, PGTD Of English, Gondwana University, Gadchiroli", 
     trait: "शांत आणि संयमी (Calm & Composed)",
     journey_title: "प्रवास आतापर्यंत (The Journey So Far)"
   },
